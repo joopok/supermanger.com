@@ -240,3 +240,92 @@ for skill in freelancer.skills:   # Iterate
 - Many-to-many queries use `.distinct()` to avoid duplicate results
 - Schema `partial=True` used for update operations (optional fields)
 - Phone validation expects format: "010-1234-5678"
+
+---
+
+## 📝 Markdown File Generation Guidelines
+
+### ⚠️ IMPORTANT - File Location Rule
+
+**ALL `*.md` files must be created in**: `backdata/mdfile/` directory only
+
+**Examples**:
+- ✅ `backdata/mdfile/API_DOCUMENTATION.md` - CORRECT
+- ✅ `backdata/mdfile/IMPLEMENTATION_GUIDE.md` - CORRECT
+- ❌ `PROJECT_ROOT/DOCUMENTATION.md` - WRONG
+- ❌ `docs/GUIDE.md` - WRONG
+
+### Markdown File Structure
+
+When creating documentation files, follow this pattern:
+```
+backdata/mdfile/{FILENAME}.md
+```
+
+### Current Markdown Files Location
+
+All existing markdown files are stored at:
+```
+backdata/mdfile/
+├── API_DOCUMENTATION.md
+├── DB_UPDATE_REPORT.md
+├── FREELANCER_FILE_UPLOAD.md
+├── IMPLEMENTATION_SUMMARY.md
+├── INTERVIEW_API_EXAMPLES.md
+├── INTERVIEW_SCHEMA.md
+├── QUERY_OPTIMIZATION.md
+├── QUICK_START.md
+└── SUMMARY.md
+```
+
+### How to Create New Markdown Files
+
+**Command pattern**:
+```bash
+# Always use this path pattern
+echo "content" > /Users/doseunghyeon/developerApp/python/www.supermanger.com/backdata/mdfile/{FILENAME}.md
+```
+
+**Python example**:
+```python
+with open('/Users/doseunghyeon/developerApp/python/www.supermanger.com/backdata/mdfile/NEW_FILE.md', 'w') as f:
+    f.write(content)
+```
+
+**Write tool path**:
+```
+file_path: /Users/doseunghyeon/developerApp/python/www.supermanger.com/backdata/mdfile/{FILENAME}.md
+```
+
+### Exceptions
+
+The only markdown files allowed in project root are:
+- `CLAUDE.md` - Claude Code project instructions (THIS FILE)
+
+All other documentation must go to `backdata/mdfile/`
+
+---
+
+## Project Directory Structure
+
+```
+www.supermanger.com/
+├── CLAUDE.md                          # ← Project instructions (Root only)
+├── app/                               # Application code
+│   ├── models/
+│   ├── routes/
+│   ├── schemas/
+│   └── services/
+├── sqldata/                           # Database scripts
+│   ├── schema.sql
+│   ├── indexes.sql
+│   └── README.md
+├── backdata/                          # Backup & Documentation
+│   ├── mdfile/                        # ← ALL markdown files go here
+│   │   ├── API_DOCUMENTATION.md
+│   │   ├── DB_UPDATE_REPORT.md
+│   │   ├── QUERY_OPTIMIZATION.md
+│   │   └── *.md (all other docs)
+│   └── (other backup files)
+└── config.py, app.py, requirements.txt
+```
