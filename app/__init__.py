@@ -62,12 +62,12 @@ def register_error_handlers(app):
 
     @app.errorhandler(400)
     def bad_request(error):
-        return handle_error('잘못된 요청입니다', 400), 400
+        return handle_error('잘못된 요청입니다', 400)
 
     @app.errorhandler(404)
     def not_found(error):
-        return handle_error('요청한 리소스를 찾을 수 없습니다', 404), 404
+        return handle_error('요청한 리소스를 찾을 수 없습니다', 404)
 
     @app.errorhandler(500)
     def internal_error(error):
-        return handle_error('서버 오류가 발생했습니다', 500), 500
+        return handle_error('서버 오류가 발생했습니다', 500)
